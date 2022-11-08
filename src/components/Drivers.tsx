@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { drivers, TDriver } from './services/drivers';
+import { drivers, TDriver } from '../services/drivers';
 
 export const Drivers: React.FC = () => {
 

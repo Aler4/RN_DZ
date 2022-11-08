@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Drivers} from '../Drivers';
+import {Drivers} from '../components/Drivers';
 
 export const SecondPage: React.FC = () => {
   return (
