@@ -9,7 +9,7 @@ let text: string = 'Lorem Ipsum - это текст-"рыба", часто ис�
   ' электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.';
 
 
-export const FirstPage: React.FC = () => {
+export const About: React.FC = () => {
 
  let [info, setInfo] = useState<string>(text);
 

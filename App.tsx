@@ -1,26 +1,48 @@
 import React from 'react';
-
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {Home} from './src/pages/Home';
-import {FirstPage} from './src/pages/FirstPage';
-import {SecondPage} from './src/pages/SecondPage';
-import {ThirdPage} from './src/pages/ThirdPage';
-import { Tabs } from "./src/components/Tabs";
+import {General} from './src/pages/General';
+import {About} from './src/pages/About';
 
-const Stack = createNativeStackNavigator();
 
+const Tabs = createBottomTabNavigator();
 const App = () => {
+
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Page 1" component={FirstPage} />
-        <Stack.Screen name="Page 2" component={SecondPage} />
-        <Stack.Screen name="Page 3" component={ThirdPage} />
-      </Stack.Navigator>
-      <Tabs />
+      <Tabs.Navigator
+        screenOptions={({ route }) => ({
+          tabBarActiveTintColor: 'green',
+          tabBarInactiveTintColor: 'gray',
+        })}
+      >
+        <Tabs.Screen name="General"
+                     component={General}
+                     options={{
+                      headerStyle: {
+                        backgroundColor: '#4f4545',
+                      },
+                       headerTitleStyle: {
+                         fontWeight: 'bold',
+                         color: "#fff"
+                       },
+                    }}
+        />
+        <Tabs.Screen name="About"
+                     component={About}
+                     options={{
+                       headerStyle: {
+                         backgroundColor: '#4f4545',
+                       },
+                       headerTitleStyle: {
+                         fontWeight: 'bold',
+                         color: "#fff"
+                       },
+                     }}
+        />
+      </Tabs.Navigator>
     </NavigationContainer>
   );
 };
