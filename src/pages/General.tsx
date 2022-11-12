@@ -14,6 +14,12 @@ export const General: React.FC = () => {
       <Stack.Navigator initialRouteName={'Home'}>
         <Stack.Screen name={'Home'}
                       component={Home}
+                      options={{
+
+                        headerStyle: {
+                          backgroundColor: 'red'
+                        }
+        }}
         />
         <Stack.Screen name={'Details'} component={Details}  />
       </Stack.Navigator>

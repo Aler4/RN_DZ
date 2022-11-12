@@ -7,8 +7,8 @@ export const Home: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.tabs}>
-        <Button title='Details' onPress={() => nav.navigate('Details', {id:1})} />
-        <Button title='Details' onPress={() => nav.navigate('Details', {id:2})} />
+        <Button title='Details' onPress={() => nav.navigate('Details', {id: 1})} />
+        <Button title='Details' onPress={() => nav.navigate('Details', {id: 2})} />
         <Button title='Details' onPress={() => nav.navigate('Details', {id: 3})} />
       </View>
 

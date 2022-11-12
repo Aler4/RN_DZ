@@ -1,7 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {General} from './src/pages/General';
 import {About} from './src/pages/About';
@@ -21,8 +20,9 @@ const App = () => {
         <Tabs.Screen name="General"
                      component={General}
                      options={{
+                       headerShown: false,
                       headerStyle: {
-                        backgroundColor: '#4f4545',
+                        backgroundColor: 'rgba(45 45 45, 0.7)',
                       },
                        headerTitleStyle: {
                          fontWeight: 'bold',
