@@ -1,35 +1,44 @@
-import React, { useMemo, useState } from "react";
-import { View, Text, StyleSheet,} from "react-native";
-import { drivers } from "../services/drivers";
+import React, {useMemo} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
+import {list, TDriver} from '../services/drivers';
 
 type Props = {
-  route: {params: number},
-}
-
-let driverList = drivers();
+  route: {params: {id: number}};
+};
 
 export const Details: React.FC<Props> = ({route}) => {
   let data = route.params;
-  let driver = useMemo(() => driverList.filter(el => el.id === data.id)[0],[route])
-  const [driverInfo, setDriverInfo] = useState(driver);
 
+  let driver = useMemo(
+    () => list.filter((el: TDriver) => el.id === data.id)[0],
+    [data.id],
+  );
 
   return (
     <View style={styles.container}>
-        <View>
-          <Text style={styles.title}>Ім'я: <Text style={styles.desc}>{driverInfo.name}</Text></Text>
-          <Text style={styles.title}>Автомобіль: <Text style={styles.desc}>{driverInfo.car}</Text></Text>
-          <Text style={styles.title}>Стаж: <Text style={styles.desc}>{driverInfo.experience} років</Text></Text>
-          <Text style={styles.title}>Оцінка: <Text style={styles.desc}>{driverInfo.rating}\10</Text></Text>
-        </View>
+      <View>
+        <Text style={styles.title}>
+          {"Ім'я: "} <Text style={styles.desc}>{driver.name}</Text>
+        </Text>
+        <Text style={styles.title}>
+          {'Автомобіль: '} <Text style={styles.desc}>{driver.car}</Text>
+        </Text>
+        <Text style={styles.title}>
+          {'Стаж: '}<Text style={styles.desc}>{driver.experience} років</Text>
+        </Text>
+        <Text style={styles.title}>
+          {'Оцінка: '} <Text style={styles.desc}>{driver.rating}\10</Text>
+        </Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: 'center',
-    padding: 10
+    padding: 10,
   },
 
   title: {
@@ -37,8 +46,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   desc: {
-    fontSize : 18,
+    fontSize: 18,
     fontStyle: 'italic',
-  }
+  },
 });
-
